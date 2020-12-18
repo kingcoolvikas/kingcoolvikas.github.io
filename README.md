@@ -1,4 +1,4 @@
 # My Portfolio
 ***
-## [kingcoolvikas.github.io](kingcoolvikas.github.io) "Coming Soon" !
+## [kingcoolvikas](https://kingcoolvikas.github.io) "Coming Soon" !
 
