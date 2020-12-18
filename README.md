@@ -2,5 +2,5 @@
 ***
 ## [kingcoolvikas](https://kingcoolvikas.github.io) "Coming Soon" !
 
-_AUTHOR : Vikas Anand_
+_Author : Vikas Anand_
 
