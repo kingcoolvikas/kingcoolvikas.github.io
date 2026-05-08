@@ -1,0 +1,407 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "FSM API",
+    "description": "Swagger documentation generated from FSM API Endpoint Documentation PDF",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://fsmapistag.kdsgroup.co.in",
+      "description": "Staging Server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "paths": {
+    "/api/master/sample-types/_search": {
+      "get": {
+        "summary": "Get Sample Types",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/egov-location/districts": {
+      "get": {
+        "summary": "Get all districts/cities",
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/egov-location/districts/{district}/ulbTypes": {
+      "get": {
+        "summary": "Get ULB types for district",
+        "parameters": [
+          {
+            "name": "district",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/egov-location/fstp/{district}/{ulb}": {
+      "get": {
+        "summary": "Get FSTP list",
+        "parameters": [
+          {
+            "name": "district",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ulb",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/user/users/oauth/token": {
+      "post": {
+        "summary": "User Login",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful"
+          }
+        }
+      }
+    },
+    "/otp/v1/_create": {
+      "post": {
+        "summary": "Generate OTP",
+        "responses": {
+          "200": {
+            "description": "OTP generated"
+          }
+        }
+      }
+    },
+    "/otp/v1/_validate": {
+      "post": {
+        "summary": "Validate OTP",
+        "responses": {
+          "200": {
+            "description": "OTP validated"
+          }
+        }
+      }
+    },
+    "/otp/v1/_validate-and-fetch": {
+      "post": {
+        "summary": "Validate Forgot Password OTP",
+        "responses": {
+          "200": {
+            "description": "OTP validated"
+          }
+        }
+      }
+    },
+    "/user/password/nologin/_update": {
+      "post": {
+        "summary": "Forgot Password Update",
+        "responses": {
+          "200": {
+            "description": "Password updated"
+          }
+        }
+      },
+      "put": {
+        "summary": "Forgot Password Update",
+        "responses": {
+          "200": {
+            "description": "Password updated"
+          }
+        }
+      }
+    },
+    "/password/reset": {
+      "post": {
+        "summary": "Reset Password",
+        "responses": {
+          "200": {
+            "description": "Password reset successful"
+          }
+        }
+      }
+    },
+    "/settings": {
+      "get": {
+        "summary": "Get Application Settings",
+        "responses": {
+          "200": {
+            "description": "Settings fetched"
+          }
+        }
+      }
+    },
+    "/vendor/v1/_create": {
+      "post": {
+        "summary": "Vendor Signup",
+        "responses": {
+          "200": {
+            "description": "Vendor registered"
+          }
+        }
+      }
+    },
+    "/user/_logout": {
+      "post": {
+        "summary": "Logout User",
+        "responses": {
+          "200": {
+            "description": "Logged out successfully"
+          }
+        }
+      }
+    },
+    "/filestore/v1/files": {
+      "post": {
+        "summary": "Upload File",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File uploaded"
+          }
+        }
+      }
+    },
+    "/user/_details": {
+      "get": {
+        "summary": "Get User Details",
+        "parameters": [
+          {
+            "name": "access_token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User details fetched"
+          }
+        }
+      }
+    },
+    "/fsm/v1/_dashboard": {
+      "get": {
+        "summary": "FSM Dashboard",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dashboard data"
+          }
+        }
+      }
+    },
+    "/fsm/v1/_plainsearch": {
+      "get": {
+        "summary": "Search FSM Requests",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "applicationStatus",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Request data fetched"
+          }
+        }
+      }
+    },
+    "/vehicle/v1/_create": {
+      "post": {
+        "summary": "Create Vehicle",
+        "responses": {
+          "200": {
+            "description": "Vehicle created"
+          }
+        }
+      }
+    },
+    "/vendor/v1/driver/_create": {
+      "post": {
+        "summary": "Create Driver",
+        "responses": {
+          "200": {
+            "description": "Driver created"
+          }
+        }
+      }
+    },
+    "/vehicle-licence/vehicle-licence/v1/_create": {
+      "post": {
+        "summary": "Apply Vehicle Licence",
+        "responses": {
+          "200": {
+            "description": "Application submitted"
+          }
+        }
+      }
+    },
+    "/fsm/v1/_create": {
+      "post": {
+        "summary": "Create Service Request",
+        "parameters": [
+          {
+            "name": "tenantId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Service request created"
+          }
+        }
+      }
+    },
+    "/fsm/v1/_update": {
+      "put": {
+        "summary": "Update Service Request",
+        "responses": {
+          "200": {
+            "description": "Service request updated"
+          }
+        }
+      },
+      "post": {
+        "summary": "Update Service Request",
+        "responses": {
+          "200": {
+            "description": "Service request updated"
+          }
+        }
+      }
+    },
+    "/fsm/payment/v1/create-order": {
+      "post": {
+        "summary": "Create Payment Order",
+        "responses": {
+          "200": {
+            "description": "Payment order created"
+          }
+        }
+      }
+    },
+    "/fsm/payment/v1/generate-secure-payment-link": {
+      "post": {
+        "summary": "Generate Secure Payment Link",
+        "responses": {
+          "200": {
+            "description": "Payment link generated"
+          }
+        }
+      }
+    },
+    "/fstp-service/api/samples/_create": {
+      "post": {
+        "summary": "Create Sample Entry",
+        "responses": {
+          "200": {
+            "description": "Sample created"
+          }
+        }
+      }
+    },
+    "/fstp-service/api/samples/_search": {
+      "get": {
+        "summary": "Search Samples",
+        "responses": {
+          "200": {
+            "description": "Samples fetched"
+          }
+        }
+      }
+    }
+  }
+}
