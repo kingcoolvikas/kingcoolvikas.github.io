@@ -190,6 +190,41 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
 .ft a{width:34px;height:34px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--dim);text-decoration:none;font-size:13px;transition:all .2s}
 .ft a:hover{border-color:var(--accent);color:var(--accent)}
 
+.hall-logo-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.logo-card{
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    transition:.25s;
+}
+
+.logo-card:hover{
+    border-color:var(--accent);
+    transform:translateY(-3px);
+}
+
+.logo-card img{
+    width:100%;
+    height:60px;
+    object-fit:contain;
+    margin-bottom:12px;
+    filter:brightness(0) invert(1);
+}
+
+.logo-card span{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--text);
+}
+
 @media(max-width:900px){
   nav{padding:14px 20px}
   .nav-links{display:none}
@@ -361,10 +396,109 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
     <div><div class="bounty-count">100+</div><div class="bounty-count-label">COMPANIES WITH VALID REPORTS</div></div>
     <p style="color:var(--dim);font-size:14px;max-width:400px;line-height:1.7">Valid security vulnerabilities submitted via HackerOne and direct programs — from tech giants to government bodies.</p>
   </div>
-  <div class="company-grid">
-    <span class="co-tag h">Google</span><span class="co-tag h">NASA</span><span class="co-tag h">DoD (US)</span><span class="co-tag h">United Nations</span><span class="co-tag h">IBM</span><span class="co-tag h">AT&T</span><span class="co-tag h">John Deere</span><span class="co-tag h">NCIIPC</span>
-    <span class="co-tag">BMW</span><span class="co-tag">Mercedes</span><span class="co-tag">Vodafone</span><span class="co-tag">Sony</span><span class="co-tag">BBC</span><span class="co-tag">Lenskart</span><span class="co-tag">Dutch Government</span><span class="co-tag">Achmea</span><span class="co-tag">Visma</span><span class="co-tag">SIDN</span><span class="co-tag">CBRE</span><span class="co-tag">Supabase</span><span class="co-tag">CircleCI</span><span class="co-tag">Squadcast</span><span class="co-tag">Streamelements</span><span class="co-tag">Xsolla</span><span class="co-tag">ESET</span><span class="co-tag">Airship</span><span class="co-tag">Naturalis</span><span class="co-tag">Gridpane</span><span class="co-tag">Hivelocity</span><span class="co-tag">Wur.nl</span><span class="co-tag">Crunch</span><span class="co-tag">+ many more</span>
+  <div class="hall-logo-grid">
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/google.com" alt="Google">
+    <span>Google</span>
   </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/nasa.gov" alt="NASA">
+    <span>NASA</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/ibm.com" alt="IBM">
+    <span>IBM</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/att.com" alt="AT&T">
+    <span>AT&T</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/deere.com" alt="John Deere">
+    <span>John Deere</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/bmw.com" alt="BMW">
+    <span>BMW</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/mercedes-benz.com" alt="Mercedes">
+    <span>Mercedes</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/vodafone.com" alt="Vodafone">
+    <span>Vodafone</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/sony.com" alt="Sony">
+    <span>Sony</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/bbc.com" alt="BBC">
+    <span>BBC</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/lenskart.com" alt="Lenskart">
+    <span>Lenskart</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/cbre.com" alt="CBRE">
+    <span>CBRE</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/supabase.com" alt="Supabase">
+    <span>Supabase</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/circleci.com" alt="CircleCI">
+    <span>CircleCI</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/eset.com" alt="ESET">
+    <span>ESET</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/airship.com" alt="Airship">
+    <span>Airship</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/xsolla.com" alt="Xsolla">
+    <span>Xsolla</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/visma.com" alt="Visma">
+    <span>Visma</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/sidn.nl" alt="SIDN">
+    <span>SIDN</span>
+  </div>
+
+  <div class="logo-card">
+    <img src="https://logo.clearbit.com/wur.nl" alt="WUR">
+    <span>Wageningen University</span>
+  </div>
+
+</div>
 </section>
 
 <!-- CONTACT -->
