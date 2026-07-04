@@ -318,8 +318,10 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
     <a href="#contact" class="btn btn-p"><i class="fas fa-shield-alt"></i> Let's Work Together</a>
     <a href="https://hackerone.com/kingcoolvikas" target="_blank" class="btn btn-o"><i class="fas fa-bug"></i> HackerOne Profile</a>
     <a href="https://raw.githubusercontent.com/kingcoolvikas/Resume/main/Vikas_Anand_Resume_4_July_2026.pdf"
-   download
-   class="btn btn-dl">
+   class="btn btn-dl"
+   download="Vikas_Anand_Resume_4_July_2026.pdf"
+   target="_blank"
+   rel="noopener noreferrer">
     <i class="fas fa-download"></i> Download Resume
 </a>
   </div>
@@ -738,11 +740,6 @@ document.getElementById('contactForm').onsubmit = e => {
   e.target.reset();
 };
 
-// ─── RESUME DOWNLOAD ─────────────────────────────────────────────────
-function downloadResume(e) {
-  e.preventDefault();
-  // Generate a simple printable resume page and trigger download
-  const resumeHTML = `<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
