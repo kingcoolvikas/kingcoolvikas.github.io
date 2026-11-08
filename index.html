@@ -5,27 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vikas Anand | Security Analyst &amp; AppSec Specialist</title>
 
-<meta name="description" content="Vikas Anand — Security Analyst and AppSec Specialist based in Patna, India. VAPT across web, API, Android and network, with 50+ engagements and 300+ vulnerabilities identified.">
+<meta name="description" content="Vikas Anand — Security Analyst and AppSec Specialist based in Patna, India. Web, API, Android and network VAPT: 100+ engagements, 200+ validated vulnerabilities found.">
 <meta name="author" content="Vikas Anand">
 <meta name="theme-color" content="#07080f">
 <link rel="canonical" href="https://kingcoolvikas.github.io/">
 
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Vikas Anand | Security Analyst &amp; AppSec Specialist">
-<meta property="og:description" content="VAPT expert with 50+ engagements across web, API, Android &amp; network. Based in Patna, India.">
+<meta property="og:description" content="Web, API, Android and network VAPT. 100+ engagements, 200+ validated findings, 100+ companies via bug bounty.">
 <meta property="og:url" content="https://kingcoolvikas.github.io/">
 <meta property="og:image" content="https://kingcoolvikas.github.io/og-image.png">
+<meta property="og:image:alt" content="Vikas Anand — Security Analyst and AppSec Specialist">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Vikas Anand | Security Analyst &amp; AppSec Specialist">
-<meta name="twitter:description" content="VAPT expert with 50+ engagements across web, API, Android &amp; network.">
+<meta name="twitter:description" content="Web, API, Android and network VAPT. 100+ engagements, 200+ validated findings.">
+<meta name="twitter:image" content="https://kingcoolvikas.github.io/og-image.png">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="preload" href="assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-mono-400.woff2" as="font" type="font/woff2" crossorigin>
 
 <script type="application/ld+json">
 {
@@ -36,7 +35,7 @@
   "url": "https://kingcoolvikas.github.io/",
   "email": "mailto:kingcoolvikas@gmail.com",
   "address": { "@type": "PostalAddress", "addressLocality": "Patna", "addressRegion": "Bihar", "addressCountry": "IN" },
-  "knowsAbout": ["Penetration Testing", "Web Application Security", "API Security", "Android Security", "Network Security"],
+  "knowsAbout": ["Penetration Testing", "Web Application Security", "API Security", "Android Security", "Network Security", "Bug Bounty"],
   "sameAs": [
     "https://github.com/kingcoolvikas",
     "https://hackerone.com/kingcoolvikas",
@@ -47,6 +46,10 @@
 </script>
 
 <style>
+@font-face{font-family:'Space Grotesk';src:url('assets/fonts/space-grotesk.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:'Space Mono';src:url('assets/fonts/space-mono-400.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Space Mono';src:url('assets/fonts/space-mono-700.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
@@ -58,13 +61,17 @@ html{scroll-behavior:smooth}
   --red:#f43f5e;
   --text:#e2e8f0;
   --dim:#94a3b8;
-  --sans:'Space Grotesk',sans-serif;
-  --mono:'Space Mono',monospace;
+  --sans:'Space Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'Space Mono',ui-monospace,'SFMono-Regular',Menlo,monospace;
 }
 body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden}
 a{color:inherit}
 img{max-width:100%}
 :focus-visible{outline:2px solid var(--accent2);outline-offset:3px;border-radius:4px}
+
+/* icons */
+.icon{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;vertical-align:-.125em}
+.icon--brand{fill:currentColor;stroke:none}
 
 .skip-link{
   position:absolute;left:12px;top:-100px;z-index:200;
@@ -83,14 +90,14 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:18px 40px;
   display:flex;justify-content:space-between;align-items:center;gap:16px;
-  backdrop-filter:blur(20px);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   background:rgba(7,8,15,0.85);
   border-bottom:1px solid var(--border);
 }
 .nav-logo{font-family:var(--mono);font-size:14px;color:var(--accent);letter-spacing:2px;text-decoration:none;flex-shrink:0}
 .nav-links{display:flex;gap:22px;list-style:none}
 .nav-links a{font-size:13px;color:var(--dim);text-decoration:none;letter-spacing:1px;transition:color .2s}
-.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover,.nav-links a[aria-current="true"]{color:var(--accent)}
 .nav-cta{
   font-family:var(--mono);font-size:11px;letter-spacing:2px;
   padding:8px 20px;border:1px solid var(--accent);border-radius:4px;
@@ -125,15 +132,19 @@ h1.hero-h1{
   letter-spacing:-2px;margin-bottom:24px;
 }
 h1 .grad{background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:18px;color:var(--dim);max-width:520px;line-height:1.7;margin-bottom:48px}
+.hero-sub{font-size:18px;color:var(--dim);max-width:600px;line-height:1.7;margin-bottom:40px}
 .hero-sub strong{color:var(--text)}
 
 /* ANIMATED STATS */
-.stat-row{display:flex;margin-bottom:48px;border:1px solid var(--border);border-radius:12px;overflow:hidden;width:fit-content;max-width:100%}
-.stat-box{padding:20px 32px;border-right:1px solid var(--border);text-align:center}
+.stat-block{margin-bottom:40px}
+.stat-row{display:flex;border:1px solid var(--border);border-radius:12px;overflow:hidden;width:fit-content;max-width:100%}
+.stat-box{padding:18px 28px;border-right:1px solid var(--border);text-align:center}
 .stat-box:last-child{border-right:none}
-.stat-n{font-size:28px;font-weight:700;background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-family:var(--mono)}
-.stat-l{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:2px;margin-top:4px}
+.stat-n{font-size:26px;font-weight:700;background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-family:var(--mono)}
+.stat-l{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:1.5px;margin-top:4px}
+.stat-source{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:12px;letter-spacing:.5px}
+.stat-source a{color:var(--accent2);text-decoration:none;border-bottom:1px solid rgba(6,182,212,.35)}
+.stat-source a:hover{color:var(--accent)}
 
 .btns{display:flex;gap:14px;flex-wrap:wrap}
 .btn{padding:13px 28px;border-radius:8px;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:none;text-align:left}
@@ -146,16 +157,17 @@ h1 .grad{background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-c
 
 /* SECTIONS */
 section{padding:100px 80px;position:relative;z-index:1;scroll-margin-top:80px}
-.s-label{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:4px;text-transform:uppercase;margin-bottom:12px}
-h2.s-title{font-size:clamp(28px,3vw,44px);font-weight:700;letter-spacing:-1px;color:#fff;margin-bottom:56px}
+.s-label{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+h2.s-title{font-size:clamp(28px,3vw,44px);font-weight:700;letter-spacing:-1px;color:#fff;margin-bottom:20px}
 h2 span{background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.s-intro{color:var(--dim);font-size:15px;line-height:1.7;max-width:620px;margin-bottom:48px}
 
 /* GLASS CARD */
 .glass{
   background:var(--card);
   border:1px solid var(--border);
   border-radius:16px;
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   transition:border-color .2s, transform .2s;
 }
 .glass:hover{border-color:rgba(168,85,247,.4);transform:translateY(-2px)}
@@ -169,13 +181,21 @@ h2 span{background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-cl
 .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .svc{padding:24px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--border);transition:all .2s}
 .svc:hover{border-color:rgba(168,85,247,.4);background:rgba(168,85,247,.05)}
-.svc-icon{font-size:20px;margin-bottom:12px}
-.svc-icon .fa-globe{color:#a855f7}
-.svc-icon .fa-plug{color:#06b6d4}
-.svc-icon .fa-mobile-alt{color:#f43f5e}
-.svc-icon .fa-network-wired{color:#f59e0b}
+.svc-icon{font-size:20px;margin-bottom:12px;line-height:1}
+.svc-icon .icon{width:20px;height:20px}
+.svc-icon.web{color:#a855f7}
+.svc-icon.api{color:#06b6d4}
+.svc-icon.mob{color:#f43f5e}
+.svc-icon.net{color:#f59e0b}
 .svc h3{font-size:13px;font-weight:600;color:#fff;margin-bottom:6px}
-.svc p{font-size:12px;color:var(--dim);line-height:1.6}
+.svc p{font-size:12.5px;color:var(--dim);line-height:1.6}
+
+/* PROCESS */
+.process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+.step{padding:22px;border-radius:12px;border:1px solid var(--border);background:rgba(255,255,255,.02);position:relative}
+.step-n{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:8px}
+.step h3{font-size:13px;font-weight:600;color:#fff;margin-bottom:6px}
+.step p{font-size:12.5px;color:var(--dim);line-height:1.6}
 
 /* SKILLS */
 .skills-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
@@ -191,7 +211,7 @@ h2 span{background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-cl
 
 /* TOOL ICONS SECTION */
 .tools-section{margin-top:48px}
-.tools-label{font-family:var(--mono);font-size:11px;color:var(--accent2);letter-spacing:4px;text-transform:uppercase;margin-bottom:20px}
+.tools-label{font-family:var(--mono);font-size:11px;color:var(--accent2);letter-spacing:3px;text-transform:uppercase;margin-bottom:20px}
 .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:14px}
 .tool-card{
   background:rgba(255,255,255,.03);
@@ -203,24 +223,15 @@ h2 span{background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-cl
   cursor:default;
 }
 .tool-card:hover{border-color:var(--accent);background:rgba(168,85,247,.07);transform:translateY(-3px)}
-.tool-icon{width:44px;height:44px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:22px}
-.tool-icon.burp{background:rgba(244,63,94,.15)}
-.tool-icon.nuclei{background:rgba(168,85,247,.15)}
-.tool-icon.ffuf{background:rgba(6,182,212,.15)}
-.tool-icon.subfinder{background:rgba(245,158,11,.15)}
-.tool-icon.naabu{background:rgba(16,185,129,.15)}
-.tool-icon.httpx{background:rgba(99,102,241,.15)}
-.tool-icon.nmap{background:rgba(6,182,212,.15)}
-.tool-icon.nessus{background:rgba(168,85,247,.15)}
-.tool-icon.mobsf{background:rgba(244,63,94,.15)}
-.tool-icon.frida{background:rgba(245,158,11,.15)}
+.tool-logo{width:86px;height:38px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;background:#eef2f7;border-radius:7px;padding:4px}
+.tool-logo img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
 .tool-name{font-family:var(--mono);font-size:11px;color:var(--text);letter-spacing:1px}
-.tool-desc{font-size:10px;color:var(--dim);margin-top:3px}
+.tool-desc{font-size:11px;color:var(--dim);margin-top:3px}
 
 /* EXPERIENCE */
 .exp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
 .exp-card{padding:28px}
-.exp-date{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:2px;margin-bottom:10px}
+.exp-date{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:1.5px;margin-bottom:10px}
 .exp-title{font-size:16px;font-weight:600;color:#fff;margin-bottom:4px}
 .exp-org{font-size:13px;color:var(--accent2);font-family:var(--mono);margin-bottom:14px}
 .exp-list{list-style:none;display:flex;flex-direction:column;gap:8px}
@@ -228,20 +239,44 @@ h2 span{background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-cl
 .exp-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:11px}
 
 /* CERTS */
-.cert-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.cert-card{padding:28px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
-.cert-badge{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px}
+.cert-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.cert-card{padding:28px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;text-decoration:none}
+.cert-badge{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.cert-badge .icon{width:20px;height:20px}
 .cert-badge.p{background:rgba(168,85,247,.15);color:#a855f7}
 .cert-badge.c{background:rgba(6,182,212,.15);color:#06b6d4}
 .cert-badge.a{background:rgba(245,158,11,.15);color:#f59e0b}
+.cert-badge.x{background:rgba(16,185,129,.15);color:#10b981}
 .cert-name{font-size:14px;font-weight:600;color:#fff;line-height:1.4}
-.cert-code{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:2px}
+.cert-code{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:1.5px}
+.cert-link{margin-top:auto;padding-top:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+a.cert-card:hover .cert-link{color:var(--accent2)}
+a.cert-card:hover{border-color:rgba(168,85,247,.5)}
+
+/* RECOGNITION */
+.recog{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.recog-item{padding:18px 20px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.02);display:flex;flex-direction:column}
+.recog-k{display:block;font-family:var(--mono);font-size:10.5px;color:var(--accent);letter-spacing:1.5px;margin-bottom:6px}
+.recog-item p{font-size:12.5px;color:var(--dim);line-height:1.6}
+.recog-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:14px}
+.recog-links a{
+  display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:1px;
+  color:var(--accent);text-decoration:none;
+  padding:4px 9px;border:1px solid rgba(168,85,247,.35);border-radius:5px;
+  transition:all .2s;
+}
+.recog-links a:hover{background:rgba(168,85,247,.15);border-color:var(--accent);color:#fff}
+.recog-links a .icon{width:11px;height:11px}
 
 /* BOUNTY */
-.bounty-header{display:flex;align-items:center;gap:20px;margin-bottom:32px;flex-wrap:wrap}
+.bounty-header{display:flex;align-items:flex-start;gap:28px;margin-bottom:32px;flex-wrap:wrap}
 .bounty-count{font-size:52px;font-weight:700;background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1;font-family:var(--mono)}
-.bounty-count-label{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:2px}
-.bounty-note{color:var(--dim);font-size:14px;max-width:400px;line-height:1.7}
+.bounty-count-label{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:1.5px;margin-top:6px}
+.bounty-meta{font-family:var(--mono);font-size:11px;color:var(--accent2);letter-spacing:.5px;margin-top:8px}
+.bounty-note{color:var(--dim);font-size:14px;max-width:420px;line-height:1.7}
+.bounty-note a{color:var(--accent2);text-decoration:none;border-bottom:1px solid rgba(6,182,212,.35)}
+.bounty-note a:hover{color:var(--accent)}
 
 /* HALL OF FAME LOGOS */
 .hall-logo-grid{
@@ -266,67 +301,77 @@ h2 span{background:linear-gradient(135deg,#a855f7,#06b6d4);-webkit-background-cl
 }
 .logo-card:hover{border-color:rgba(168,85,247,.4);transform:translateY(-3px);background:rgba(168,85,247,.05)}
 .logo-card img{
-  width:100%;
-  max-width:80px;
-  height:44px;
+  width:72px;
+  height:40px;
   object-fit:contain;
-  background:#fff;
+  background:#eef2f7;
   border-radius:8px;
   padding:5px;
   transition:opacity .2s;
-  opacity:.85;
+  opacity:.9;
 }
 .logo-card:hover img{opacity:1}
 .logo-mono{
-  width:44px;height:44px;border-radius:50%;
+  width:40px;height:40px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
   background:rgba(168,85,247,.15);border:1px solid rgba(168,85,247,.35);
-  color:var(--accent);font-family:var(--mono);font-size:13px;font-weight:700;
+  color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:700;
   letter-spacing:.5px;
 }
 .logo-card span{
   font-family:var(--mono);
   font-size:11px;
   color:var(--dim);
-  letter-spacing:1px;
+  letter-spacing:.5px;
   line-height:1.4;
 }
 .logo-card:hover span{color:var(--text)}
 
-/* WRITEUPS */
-#writeups{padding:100px 80px}
-.writeup-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.writeup-card{padding:28px;display:flex;flex-direction:column;gap:16px;border-radius:16px;text-decoration:none;transition:all .25s}
-.writeup-card:hover{border-color:rgba(168,85,247,.5);transform:translateY(-4px);box-shadow:0 20px 50px rgba(168,85,247,.12)}
-.writeup-tag{font-family:var(--mono);font-size:10px;letter-spacing:2px;padding:4px 10px;border-radius:4px;display:inline-block;width:fit-content}
+/* FINDINGS */
+#findings{padding:100px 80px}
+.findings-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.finding{padding:28px;display:flex;flex-direction:column;gap:14px;border-radius:16px;transition:all .25s}
+.finding:hover{border-color:rgba(168,85,247,.5);transform:translateY(-4px);box-shadow:0 20px 50px rgba(168,85,247,.12)}
+.finding-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.writeup-tag{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;padding:4px 10px;border-radius:4px;display:inline-block;width:fit-content}
+.finding-date{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:1px;white-space:nowrap}
 .tag-idor{background:rgba(244,63,94,.15);color:#f43f5e;border:1px solid rgba(244,63,94,.3)}
 .tag-recon{background:rgba(6,182,212,.15);color:#06b6d4;border:1px solid rgba(6,182,212,.3)}
 .tag-xss{background:rgba(245,158,11,.15);color:#f59e0b;border:1px solid rgba(245,158,11,.3)}
-.writeup-title{font-size:16px;font-weight:600;color:#fff;line-height:1.4}
-.writeup-desc{font-size:13px;color:var(--dim);line-height:1.7}
-.writeup-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:16px;border-top:1px solid var(--border)}
-.writeup-date{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:1px}
-.writeup-read{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:1px;display:flex;align-items:center;gap:6px}
-.writeup-icon{font-size:28px;margin-bottom:4px}
+.finding-title{font-size:16px;font-weight:600;color:#fff;line-height:1.4}
+.finding-impact{font-size:13px;color:var(--dim);line-height:1.7}
+.finding-impact strong{color:var(--red);font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;display:block;margin-bottom:4px}
+.finding-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:2px}
+.finding-list li{font-size:12.5px;color:var(--dim);line-height:1.6;padding-left:14px;position:relative}
+.finding-list li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.7}
+.finding-list code{font-family:var(--mono);font-size:11.5px;color:#c4b5fd;background:rgba(168,85,247,.1);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+.finding-link{
+  margin-top:auto;padding-top:16px;border-top:1px solid var(--border);
+  font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--accent);
+  text-decoration:none;display:flex;align-items:center;gap:6px;
+}
+.finding-link:hover{color:var(--accent2)}
+.findings-cta{margin-top:32px;text-align:center}
 
 /* CONTACT */
 .contact-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:40px}
 .c-cards{display:flex;flex-direction:column;gap:14px;min-width:0}
 .c-card{padding:18px 22px;display:flex;align-items:center;gap:14px;min-width:0}
-.c-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.c-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-icon .icon{width:17px;height:17px}
 .c-icon.m{background:rgba(168,85,247,.15);color:#a855f7}
 .c-icon.p{background:rgba(6,182,212,.15);color:#06b6d4}
 .c-icon.l{background:rgba(6,182,212,.15);color:#06b6d4}
 .c-icon.h{background:rgba(244,63,94,.15);color:#f43f5e}
 .c-icon.loc{background:rgba(245,158,11,.15);color:#f59e0b}
-.c-label{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:2px;margin-bottom:3px}
+.c-label{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:1.5px;margin-bottom:3px}
 .c-val{font-size:13px;color:#fff;overflow-wrap:anywhere}
 .c-val a{color:#fff;text-decoration:none}
 .c-val a:hover{color:var(--accent)}
 .cform{display:flex;flex-direction:column;gap:14px;min-width:0}
 .frow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .fg{display:flex;flex-direction:column;gap:6px;min-width:0}
-.flbl{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:2px}
+.flbl{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:1.5px}
 .fi,.fta{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:8px;padding:12px 16px;color:var(--text);font-family:var(--sans);font-size:13px;outline:none;transition:border-color .2s}
 .fi:focus,.fta:focus{border-color:var(--accent)}
 .fta{min-height:130px;resize:vertical}
@@ -341,50 +386,13 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
 .fc{font-family:var(--mono);font-size:11px;color:var(--dim)}
 .fc span{color:var(--accent)}
 .ft{display:flex;gap:10px}
-.ft a{width:34px;height:34px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--dim);text-decoration:none;font-size:13px;transition:all .2s}
+.ft a{width:34px;height:34px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--dim);text-decoration:none;transition:all .2s}
+.ft a .icon{width:15px;height:15px}
 .ft a:hover{border-color:var(--accent);color:var(--accent)}
 
 /* Counter animation */
 @keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .stat-n.counted{animation:countUp .4s ease}
-
-@media(max-width:900px){
-  nav{padding:14px 20px;gap:12px}
-  .nav-toggle{display:block;margin-left:auto}
-  .nav-links{
-    display:none;
-    position:fixed;top:64px;left:0;right:0;
-    flex-direction:column;gap:0;
-    padding:8px 20px 20px;
-    background:rgba(7,8,15,0.98);
-    border-bottom:1px solid var(--border);
-    backdrop-filter:blur(20px);
-  }
-  .nav-links.open{display:flex}
-  .nav-links li{border-bottom:1px solid var(--border)}
-  .nav-links li:last-child{border-bottom:none}
-  .nav-links a{display:block;padding:14px 0;font-size:14px}
-  section,#writeups{padding:70px 24px}
-  #home{padding:100px 24px 60px}
-  .about-layout,.skills-grid,.exp-grid,.cert-row,.contact-layout,.writeup-grid{grid-template-columns:minmax(0,1fr)}
-  .stat-row{flex-wrap:wrap}
-  .stat-box{border-right:none;border-bottom:1px solid var(--border)}
-  footer{padding:20px 24px;flex-direction:column;gap:12px;text-align:center}
-  .hall-logo-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
-  .tools-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr))}
-}
-
-@media(max-width:600px){
-  .frow{grid-template-columns:minmax(0,1fr)}
-  .services{grid-template-columns:minmax(0,1fr)}
-  .stat-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
-  .stat-box{border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .stat-box:nth-child(2n){border-right:none}
-  .stat-box:nth-last-child(-n+2){border-bottom:none}
-  .btn{width:100%;justify-content:center}
-  .hero-sub{font-size:16px}
-}
-
 
 /* UTILITIES */
 .mt-10{margin-top:10px}
@@ -395,11 +403,50 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
 .label-tight{margin-bottom:12px}
 .exp-card--stack{display:flex;flex-direction:column;justify-content:space-between}
 
+@media(max-width:1100px){
+  .findings-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:900px){
+  nav{padding:14px 20px;gap:12px}
+  .nav-toggle{display:block;margin-left:auto}
+  .nav-links{
+    display:none;
+    position:fixed;top:64px;left:0;right:0;
+    flex-direction:column;gap:0;
+    padding:8px 20px 20px;
+    background:rgba(7,8,15,0.98);
+    border-bottom:1px solid var(--border);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{border-bottom:1px solid var(--border)}
+  .nav-links li:last-child{border-bottom:none}
+  .nav-links a{display:block;padding:14px 0;font-size:14px}
+  section,#findings{padding:70px 24px}
+  #home{padding:100px 24px 60px}
+  .about-layout,.skills-grid,.exp-grid,.cert-row,.contact-layout,.process{grid-template-columns:minmax(0,1fr)}
+  .findings-grid{grid-template-columns:minmax(0,1fr)}
+  .stat-row{flex-wrap:wrap}
+  .stat-box{border-right:none;border-bottom:1px solid var(--border)}
+  footer{padding:20px 24px;flex-direction:column;gap:12px;text-align:center}
+  .hall-logo-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+  .tools-grid{grid-template-columns:repeat(auto-fill,minmax(90px,1fr))}
+  .orb{display:none}
+}
+@media(max-width:600px){
+  .frow{grid-template-columns:minmax(0,1fr)}
+  .services{grid-template-columns:minmax(0,1fr)}
+  .stat-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}
+  .stat-box{border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .stat-box:nth-child(2n){border-right:none}
+  .stat-box:nth-last-child(-n+2){border-bottom:none}
+  .btn{width:100%;justify-content:center}
+  .hero-sub{font-size:16px}
+}
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
 }
-
 @media print{
   nav,.orb,.btns,footer .ft{display:none}
   body{background:#fff;color:#000}
@@ -408,6 +455,29 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
 <noscript><style>.fill{width:var(--w)}</style></noscript>
 </head>
 <body>
+
+<!-- icon sprite (lucide, ISC; simple-icons, CC0) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" focusable="false">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  <symbol id="i-bug" viewBox="0 0 24 24"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></symbol>
+  <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></symbol>
+  <symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-medium" viewBox="0 0 24 24"><path d="M4.21 0A4.201 4.201 0 0 0 0 4.21v15.58A4.201 4.201 0 0 0 4.21 24h15.58A4.201 4.201 0 0 0 24 19.79v-1.093c-.137.013-.278.02-.422.02-2.577 0-4.027-2.146-4.09-4.832a7.592 7.592 0 0 1 .022-.708c.093-1.186.475-2.241 1.105-3.022a3.885 3.885 0 0 1 1.395-1.1c.468-.237 1.127-.367 1.664-.367h.023c.101 0 .202.004.303.01V4.211A4.201 4.201 0 0 0 19.79 0Zm.198 5.583h4.165l3.588 8.435 3.59-8.435h3.864v.146l-.019.004c-.705.16-1.063.397-1.063 1.254h-.003l.003 10.274c.06.676.424.885 1.063 1.03l.02.004v.145h-4.923v-.145l.019-.005c.639-.144.994-.353 1.054-1.03V7.267l-4.745 11.15h-.261L6.15 7.569v9.445c0 .857.358 1.094 1.063 1.253l.02.004v.147H4.405v-.147l.019-.004c.705-.16 1.065-.397 1.065-1.253V6.987c0-.857-.358-1.094-1.064-1.254l-.018-.004zm19.25 3.668c-1.086.023-1.733 1.323-1.813 3.124H24V9.298a1.378 1.378 0 0 0-.342-.047Zm-1.862 3.632c-.1 1.756.86 3.239 2.204 3.634v-3.634z"/></symbol>
+</svg>
+
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="orb orb-1" aria-hidden="true"></div>
 <div class="orb orb-2" aria-hidden="true"></div>
@@ -421,8 +491,8 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#findings">Findings</a></li>
     <li><a href="#bounty">Bug Bounty</a></li>
-    <li><a href="#writeups">Writeups</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="mailto:kingcoolvikas@gmail.com?subject=Security%20engagement%20inquiry" class="nav-cta">HIRE ME</a>
@@ -432,24 +502,25 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
 
 <!-- HERO -->
 <section id="home" aria-labelledby="hero-title">
-  <div class="hero-badge"><span class="dot" aria-hidden="true"></span> Available for Security Engagements</div>
+  <div class="hero-badge"><span class="dot" aria-hidden="true"></span> Available for security engagements</div>
   <h1 class="hero-h1" id="hero-title">Security<br><span class="grad">Analyst &amp;</span><br>AppSec Specialist</h1>
-  <p class="hero-sub"><strong>Vikas Anand</strong> — VAPT expert with 50+ engagements across web, API, Android &amp; network. Based in Patna, India.</p>
-  <div class="stat-row">
-    <div class="stat-box"><div class="stat-n" data-target="50" data-suffix="+">50+</div><div class="stat-l">VAPT Engagements</div></div>
-    <div class="stat-box"><div class="stat-n" data-target="300" data-suffix="+">300+</div><div class="stat-l">Vulns Found</div></div>
-    <div class="stat-box"><div class="stat-n" data-target="100" data-suffix="+">100+</div><div class="stat-l">Companies Secured</div></div>
-    <div class="stat-box"><div class="stat-n" data-target="40" data-suffix="+">40+</div><div class="stat-l">Govt. Orgs.</div></div>
+  <p class="hero-sub">I find the bugs that break real products — auth bypass, IDOR, injection, business-logic flaws — across <strong>web, API, Android and network</strong> scope. 100+ VAPT engagements, 200+ validated findings, and a bug-bounty record with 100+ companies.</p>
+
+  <div class="stat-block">
+    <div class="stat-row">
+      <div class="stat-box"><div class="stat-n" data-target="100" data-suffix="+">100+</div><div class="stat-l">VAPT Engagements</div></div>
+      <div class="stat-box"><div class="stat-n" data-target="200" data-suffix="+">200+</div><div class="stat-l">Vulns Found</div></div>
+      <div class="stat-box"><div class="stat-n" data-target="100" data-suffix="+">100+</div><div class="stat-l">Companies Secured</div></div>
+      <div class="stat-box"><div class="stat-n" data-target="80" data-suffix="+">80+</div><div class="stat-l">Govt. Orgs.</div></div>
+    </div>
+    <p class="stat-source">Client work above · bug-bounty record public on <a href="https://hackerone.com/kingcoolvikas" target="_blank" rel="noopener noreferrer me">HackerOne</a></p>
   </div>
+
   <div class="btns">
-    <a href="#contact" class="btn btn-p"><i class="fas fa-shield-alt" aria-hidden="true"></i> Let's Work Together</a>
-    <a href="https://hackerone.com/kingcoolvikas" target="_blank" rel="noopener noreferrer" class="btn btn-o"><i class="fas fa-bug" aria-hidden="true"></i> HackerOne Profile</a>
-    <a href="https://raw.githubusercontent.com/kingcoolvikas/Resume/main/Vikas_Anand_Resume_4_July_2026.pdf"
-       class="btn btn-dl"
-       download="Vikas_Anand_Resume_4_July_2026.pdf"
-       target="_blank"
-       rel="noopener noreferrer">
-      <i class="fas fa-download" aria-hidden="true"></i> Download Resume
+    <a href="#contact" class="btn btn-p"><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg> Let's Work Together</a>
+    <a href="https://hackerone.com/kingcoolvikas" target="_blank" rel="noopener noreferrer me" class="btn btn-o"><svg class="icon" aria-hidden="true"><use href="#i-bug"></use></svg> HackerOne Profile</a>
+    <a href="assets/Vikas_Anand_Resume_17_Aug_2026.pdf" class="btn btn-dl" target="_blank" rel="noopener noreferrer">
+      <svg class="icon" aria-hidden="true"><use href="#i-file-text"></use></svg> View Resume
     </a>
   </div>
 </section>
@@ -460,16 +531,22 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
   <h2 class="s-title" id="about-title">Who I <span>Am</span></h2>
   <div class="about-layout">
     <div class="glass about-card">
-      <p>I'm a <strong>Security Analyst</strong> with deep hands-on experience in Web Application, API, Android, and Network Penetration Testing. I've conducted <strong>50+ VAPT engagements</strong> identifying <strong>300+ vulnerabilities</strong> across government and private-sector clients.</p>
-      <p>I've helped secure <strong>40+ government organizations</strong> and 10+ private-sector companies by identifying critical risks and supporting effective remediation — from auth flaws and IDOR to injection and business logic weaknesses.</p>
-      <p>Beyond client work, I actively participate in <strong>bug bounty programs</strong> across HackerOne and have reported valid findings to over 100 global companies including Google, NASA, DoD, and the United Nations.</p>
+      <p>I'm a <strong>Security Analyst</strong> with <strong>1+ year</strong> across web application, API, Android and network penetration testing. Over <strong>100+ VAPT engagements</strong> for government and private-sector clients I've reported <strong>200+ validated vulnerabilities</strong> — broken object-level authorisation and IDOR, SQL injection, XSS, auth flaws and business-logic weaknesses — and worked with the teams that fixed them.</p>
+      <p>Outside client work I hunt on <strong>HackerOne</strong> — reputation <strong>630</strong>, impact <strong>16.25</strong> — with valid reports accepted by <strong>100+ organisations</strong> including Google, NASA, IBM, BBC, the U.S. Department of Defense and the United Nations. I publish the techniques behind the interesting ones so other hunters can reproduce them.</p>
+      <p>Every finding is validated against <strong>CVSS v3.1</strong> and reproduced with a proof of concept before it goes in the report — no scanner noise, no unverified criticals.</p>
     </div>
     <div class="services">
-      <div class="svc"><div class="svc-icon"><i class="fas fa-globe" aria-hidden="true"></i></div><h3>Web App Testing</h3><p>OWASP Top 10, auth flaws, IDOR, injection, business logic vulnerabilities.</p></div>
-      <div class="svc"><div class="svc-icon"><i class="fas fa-plug" aria-hidden="true"></i></div><h3>API Security</h3><p>REST &amp; GraphQL APIs, broken object-level auth, fuzzing, rate limiting.</p></div>
-      <div class="svc"><div class="svc-icon"><i class="fas fa-mobile-alt" aria-hidden="true"></i></div><h3>Android DAST/SAST</h3><p>Mobile app analysis with Frida, Objection, JADX, MobSF, ADB.</p></div>
-      <div class="svc"><div class="svc-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div><h3>Network VAPT</h3><p>Scanning, exploitation, vulnerability assessment with Nessus &amp; Nmap.</p></div>
+      <div class="svc"><div class="svc-icon web"><svg class="icon" aria-hidden="true"><use href="#i-globe"></use></svg></div><h3>Web App Testing</h3><p>OWASP Top 10, auth flaws, IDOR, injection, business-logic abuse.</p></div>
+      <div class="svc"><div class="svc-icon api"><svg class="icon" aria-hidden="true"><use href="#i-plug"></use></svg></div><h3>API Security</h3><p>REST &amp; GraphQL, broken object-level auth, fuzzing, rate limiting.</p></div>
+      <div class="svc"><div class="svc-icon mob"><svg class="icon" aria-hidden="true"><use href="#i-smartphone"></use></svg></div><h3>Android DAST/SAST</h3><p>Frida, Objection, JADX, MobSF and ADB against real devices.</p></div>
+      <div class="svc"><div class="svc-icon net"><svg class="icon" aria-hidden="true"><use href="#i-network"></use></svg></div><h3>Network VAPT</h3><p>Scanning, exploitation and assessment with Nessus and Nmap.</p></div>
     </div>
+  </div>
+
+  <div class="process">
+    <div class="step"><div class="step-n">01 / SCOPE</div><h3>Scope &amp; threat model</h3><p>Targets, test accounts and rules of engagement agreed in writing before testing starts.</p></div>
+    <div class="step"><div class="step-n">02 / TEST</div><h3>Test &amp; validate</h3><p>Manual testing backed by Burp and ProjectDiscovery tooling. Each finding reproduced before it is reported.</p></div>
+    <div class="step"><div class="step-n">03 / REPORT</div><h3>Report &amp; retest</h3><p>Severity-rated report with reproduction steps and fix guidance, then a retest once remediation ships.</p></div>
   </div>
 </section>
 
@@ -494,7 +571,7 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
       <div class="skill-item"><div class="skill-top"><span class="n">Python / Bash</span><span class="p">78%</span></div><div class="track" role="img" aria-label="Python and Bash: 78 percent"><div class="fill" data-w="78" style="--w:78%"></div></div></div>
       <div class="skill-item"><div class="skill-top"><span class="n">Frida / JADX / MobSF</span><span class="p">76%</span></div><div class="track" role="img" aria-label="Frida, JADX and MobSF: 76 percent"><div class="fill" data-w="76" style="--w:76%"></div></div></div>
       <div class="chip-wrap mt-20">
-        <span class="chip">Kali Linux</span><span class="chip">OWASP Top 10</span><span class="chip">Shodan</span><span class="chip">Censys</span><span class="chip">Amass</span><span class="chip">Subfinder</span><span class="chip">FFUF</span><span class="chip">Httpx</span><span class="chip">Naabu</span><span class="chip">Wireshark</span><span class="chip">ADB</span><span class="chip">Objection</span>
+        <span class="chip">Kali Linux</span><span class="chip">OWASP Top 10</span><span class="chip">Shodan</span><span class="chip">Censys</span><span class="chip">Amass</span><span class="chip">Subfinder</span><span class="chip">FFUF</span><span class="chip">httpx</span><span class="chip">Naabu</span><span class="chip">Wireshark</span><span class="chip">ADB</span><span class="chip">Objection</span><span class="chip">CVSS v3.1</span><span class="chip">MITRE ATT&amp;CK</span><span class="chip">OWASP API Top 10</span>
       </div>
     </div>
   </div>
@@ -504,123 +581,52 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
     <div class="tools-label">// Primary Toolset</div>
     <div class="tools-grid">
       <div class="tool-card">
-        <div class="tool-icon burp" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(244,63,94,0.2)"/>
-            <path d="M10 8h10c4 0 7 2.5 7 6 0 2-1 3.5-2.5 4.5C26.5 19.5 28 21.5 28 24c0 4-3 6-7 6H10V8z" fill="#f43f5e" opacity=".8"/>
-            <path d="M14 13h5c1.7 0 2.5.8 2.5 2s-.8 2-2.5 2H14v-4z" fill="#fff" opacity=".9"/>
-            <path d="M14 21h6c1.7 0 2.5.8 2.5 2s-.8 2-2.5 2H14v-4z" fill="#fff" opacity=".9"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/burp.svg" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">Burp Suite</div>
         <div class="tool-desc">Web proxy</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon nuclei" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(168,85,247,0.2)"/>
-            <polygon points="18,6 30,28 6,28" fill="none" stroke="#a855f7" stroke-width="2.5" stroke-linejoin="round"/>
-            <circle cx="18" cy="19" r="3" fill="#a855f7"/>
-            <line x1="18" y1="11" x2="18" y2="16" stroke="#a855f7" stroke-width="2"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/nuclei.png" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">Nuclei</div>
         <div class="tool-desc">Vuln scanner</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon ffuf" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(6,182,212,0.2)"/>
-            <path d="M9 10h18M9 18h14M9 26h10" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="27" cy="26" r="3" fill="#06b6d4"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/ffuf.png" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">FFUF</div>
         <div class="tool-desc">Web fuzzer</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon subfinder" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(245,158,11,0.2)"/>
-            <circle cx="14" cy="14" r="6" stroke="#f59e0b" stroke-width="2" fill="none"/>
-            <line x1="18.5" y1="18.5" x2="28" y2="28" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
-            <circle cx="14" cy="14" r="2" fill="#f59e0b"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/subfinder.png" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">Subfinder</div>
         <div class="tool-desc">Subdomain enum</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon naabu" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(16,185,129,0.2)"/>
-            <rect x="7" y="22" width="4" height="8" rx="1" fill="#10b981"/>
-            <rect x="14" y="16" width="4" height="14" rx="1" fill="#10b981" opacity=".8"/>
-            <rect x="21" y="10" width="4" height="20" rx="1" fill="#10b981" opacity=".6"/>
-            <path d="M6 22 L14 16 L21 10 L29 6" stroke="#10b981" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/naabu.png" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">Naabu</div>
         <div class="tool-desc">Port scanner</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon httpx" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(99,102,241,0.2)"/>
-            <path d="M10 12l5 12M26 12l-5 12M12 18h12" stroke="#6366f1" stroke-width="2.2" stroke-linecap="round"/>
-            <path d="M26 24l4 4" stroke="#6366f1" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/httpx.png" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">httpx</div>
         <div class="tool-desc">HTTP probing</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon nmap" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(6,182,212,0.15)"/>
-            <circle cx="18" cy="18" r="11" stroke="#06b6d4" stroke-width="1.5" fill="none" opacity=".4"/>
-            <circle cx="18" cy="18" r="7" stroke="#06b6d4" stroke-width="1.5" fill="none" opacity=".6"/>
-            <circle cx="18" cy="18" r="3" fill="#06b6d4"/>
-            <line x1="18" y1="7" x2="18" y2="11" stroke="#06b6d4" stroke-width="2"/>
-            <line x1="24" y1="12" x2="21.2" y2="14.8" stroke="#06b6d4" stroke-width="1.5"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/nmap.png" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">Nmap</div>
         <div class="tool-desc">Network mapper</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon nessus" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(168,85,247,0.15)"/>
-            <path d="M18 7 C11 7 7 12 7 18 C7 24 11 29 18 29 C25 29 29 24 29 18 C29 12 25 7 18 7Z" fill="none" stroke="#a855f7" stroke-width="2"/>
-            <path d="M13 18 L17 22 L23 14" stroke="#a855f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/nessus.png" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">Nessus</div>
         <div class="tool-desc">Vuln assessment</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon mobsf" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(244,63,94,0.15)"/>
-            <rect x="12" y="5" width="12" height="22" rx="3" stroke="#f43f5e" stroke-width="2" fill="none"/>
-            <circle cx="18" cy="23" r="1.5" fill="#f43f5e"/>
-            <path d="M15 10 L21 10" stroke="#f43f5e" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M22 16 L26 12 M24 12 L26 12 L26 14" stroke="#f43f5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/mobsf.png" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">MobSF</div>
         <div class="tool-desc">Mobile security</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon frida" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" focusable="false">
-            <rect width="36" height="36" rx="8" fill="rgba(245,158,11,0.15)"/>
-            <path d="M10 28 L18 8 L26 28" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <line x1="13" y1="21" x2="23" y2="21" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="18" cy="8" r="2" fill="#f59e0b"/>
-          </svg>
-        </div>
+        <div class="tool-logo"><img src="assets/logos/frida.png" alt="" width="86" height="38" loading="lazy" decoding="async"></div>
         <div class="tool-name">Frida</div>
         <div class="tool-desc">Dynamic analysis</div>
       </div>
@@ -638,10 +644,10 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
       <div class="exp-title">Security Analyst</div>
       <div class="exp-org">Innovador Infotech Pvt. Ltd.</div>
       <ul class="exp-list">
-        <li>Conducted 50+ VAPT engagements for government and private-sector clients.</li>
-        <li>Security testing across web, API, network, and Android applications.</li>
-        <li>Identified auth flaws, IDOR, injection, and business logic weaknesses.</li>
-        <li>Collaborated with developers and stakeholders on remediation.</li>
+        <li>Conducted 100+ VAPT engagements for government and private-sector clients across web, API, network and Android applications.</li>
+        <li>Identified, validated and reported 35+ Critical/High severity issues (CVSS 7.0+) — authentication flaws, SQL injection, XSS, IDOR, injection and business-logic weaknesses.</li>
+        <li>Performed on-site assessments at State Government departments and Central Government organisations, including the National Investigation Agency (NIA), Raipur.</li>
+        <li>Worked directly with development teams on remediation, then retested to confirm closure.</li>
       </ul>
     </div>
     <div class="glass exp-card">
@@ -649,9 +655,9 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
       <div class="exp-title">Red Team Consultant</div>
       <div class="exp-org">CyberNeonGen</div>
       <ul class="exp-list">
-        <li>Red team assessments for enterprise clients.</li>
-        <li>Web application exploitation and attack simulation.</li>
-        <li>Strengthened security posture and threat mitigation strategies.</li>
+        <li>Executed web application exploitation and attack-simulation exercises for enterprise clients.</li>
+        <li>Turned isolated issues into realistic attack paths and threat narratives.</li>
+        <li>Delivered prioritised hardening recommendations to strengthen client security posture.</li>
       </ul>
     </div>
     <div class="glass exp-card">
@@ -660,7 +666,7 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
       <div class="exp-org">LNCT Group of Colleges, Bhopal</div>
       <ul class="exp-list">
         <li>CGPA: 7.94</li>
-        <li>Focused on cybersecurity, networking, and software engineering.</li>
+        <li>Focused on cybersecurity, networking and software engineering.</li>
       </ul>
     </div>
     <div class="glass exp-card exp-card--stack">
@@ -669,11 +675,11 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
         <div class="exp-title">S1MPL3_R3CON</div>
         <div class="exp-org">github.com/kingcoolvikas</div>
         <ul class="exp-list mt-10">
-          <li>Recon automation: subdomain discovery, HTTP probing, port scanning.</li>
-          <li>Integrates ProjectDiscovery tools into a single workflow.</li>
+          <li>Recon automation pipeline covering subdomain discovery, HTTP probing and port scanning.</li>
+          <li>Chains ProjectDiscovery tools into a single workflow instead of a dozen manual commands.</li>
         </ul>
       </div>
-      <a href="https://github.com/kingcoolvikas/S1MPL3_R3CON" target="_blank" rel="noopener noreferrer" class="btn btn-o btn-fit"><i class="fab fa-github" aria-hidden="true"></i> View on GitHub</a>
+      <a href="https://github.com/kingcoolvikas/S1MPL3_R3CON" target="_blank" rel="noopener noreferrer" class="btn btn-o btn-fit"><svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg> View on GitHub</a>
     </div>
   </div>
 
@@ -681,22 +687,124 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
   <div class="mt-48">
     <div class="s-label label-tight">// Certifications</div>
     <div class="cert-row">
-      <div class="glass cert-card">
-        <div class="cert-badge p"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
+      <a class="glass cert-card" href="https://drive.google.com/file/d/1rfvZaz6KKy0qy6dp5erp6brZXiLBFrgu/view" target="_blank" rel="noopener noreferrer" aria-label="View CAPenX certificate (opens in a new tab)">
+        <div class="cert-badge x"><svg class="icon" aria-hidden="true"><use href="#i-bug"></use></svg></div>
+        <div class="cert-name">Certified AppSec Pentesting eXpert</div>
+        <div class="cert-code">CAPENX</div>
+        <span class="cert-link">View certificate <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+      </a>
+      <a class="glass cert-card" href="https://drive.google.com/file/d/1xWA2_pQbMMG5V-QkgSU-nDFRbjzzszju/view" target="_blank" rel="noopener noreferrer" aria-label="View CEH V12 Practical certificate (opens in a new tab)">
+        <div class="cert-badge p"><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg></div>
         <div class="cert-name">Certified Ethical Hacker</div>
         <div class="cert-code">CEH V12 PRACTICAL · EC-COUNCIL</div>
-      </div>
-      <div class="glass cert-card">
-        <div class="cert-badge c"><i class="fas fa-lock" aria-hidden="true"></i></div>
+        <span class="cert-link">View certificate <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+      </a>
+      <a class="glass cert-card" href="https://drive.google.com/file/d/1muZOQJmryme3gyAHVhv0Eh7eUOjW0e5p/view" target="_blank" rel="noopener noreferrer" aria-label="View Certified AppSec Practitioner certificate (opens in a new tab)">
+        <div class="cert-badge c"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg></div>
         <div class="cert-name">Certified AppSec Practitioner</div>
         <div class="cert-code">CAP · THE SECOPS GROUP</div>
-      </div>
-      <div class="glass cert-card">
-        <div class="cert-badge a"><i class="fab fa-aws" aria-hidden="true"></i></div>
+        <span class="cert-link">View certificate <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+      </a>
+      <a class="glass cert-card" href="https://drive.google.com/file/d/1cTqy5MKEkGZpUIvuFPAA9wLF1KRQrfJU/view" target="_blank" rel="noopener noreferrer" aria-label="View CCSP-AWS certificate (opens in a new tab)">
+        <div class="cert-badge a"><svg class="icon" aria-hidden="true"><use href="#i-cloud"></use></svg></div>
         <div class="cert-name">Certified Cloud Security Practitioner</div>
-        <div class="cert-code">CCSP-AWS · CLOUD SECURITY ALLIANCE</div>
+        <div class="cert-code">CCSP-AWS</div>
+        <span class="cert-link">View certificate <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+      </a>
+    </div>
+
+    <div class="mt-48">
+      <div class="s-label label-tight">// Recognition</div>
+      <div class="recog">
+        <div class="recog-item">
+          <span class="recog-k">LETTER OF APPRECIATION</span>
+          <p>University of Cambridge &amp; Drexel University</p>
+          <div class="recog-links">
+            <a href="https://drive.google.com/file/d/1gUwmBNRJ3JlGAGj6KjXgdAMAPyFIK_Ud/view" target="_blank" rel="noopener noreferrer" aria-label="View University of Cambridge letter of appreciation (opens in a new tab)">Cambridge <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+            <a href="https://drive.google.com/file/d/1p5ZCWWgeQtBW_SMdrjH9c9BKmxy-scem/view" target="_blank" rel="noopener noreferrer" aria-label="View Drexel University letter of appreciation (opens in a new tab)">Drexel <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+          </div>
+        </div>
+        <div class="recog-item">
+          <span class="recog-k">2021 · HACKATHON</span>
+          <p>Indian Army Cyber Security Hackathon (Sainya-Ranakshetram) · c0c0n Conference</p>
+          <div class="recog-links">
+            <a href="https://drive.google.com/file/d/1mrjY8zTahM1Z1Vfd52JvXZNfmYp_SJWY/view" target="_blank" rel="noopener noreferrer" aria-label="View Indian Army Sainya-Ranakshetram 2021 certificate (opens in a new tab)">Indian Army <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+            <a href="https://drive.google.com/file/d/18CnV7RukkC-IDvkDZoxDSHq2Y3ZOSQkx/view" target="_blank" rel="noopener noreferrer" aria-label="View c0c0n 2021 participation certificate (opens in a new tab)">c0c0n 2021 <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+          </div>
+        </div>
+        <div class="recog-item">
+          <span class="recog-k">HANDS-ON</span>
+          <p>PentesterLab Recon badge · 50+ PortSwigger labs · 70+ TryHackMe · 20+ Hack The Box</p>
+          <div class="recog-links">
+            <a href="https://github.com/kingcoolvikas/S1MPL3_R3CON" target="_blank" rel="noopener noreferrer" aria-label="View the S1MPL3_R3CON recon project on GitHub (opens in a new tab)">Recon project <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+          </div>
+        </div>
+        <div class="recog-item">
+          <span class="recog-k">COMMUNITY</span>
+          <p>DEF CON Delhi 2022 · BSides Ahmedabad 2021 &amp; 2023 · OWASP Bhopal</p>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FINDINGS -->
+<section id="findings" aria-labelledby="findings-title">
+  <div class="s-label">// Selected Findings</div>
+  <h2 class="s-title" id="findings-title">Bugs I've <span>Written Up</span></h2>
+  <p class="s-intro">Three representative findings from bug-bounty work — what broke, how I found it, and what an attacker could have done with it. Full technical writeups are on Medium.</p>
+
+  <div class="findings-grid">
+
+    <article class="finding glass">
+      <div class="finding-head">
+        <span class="writeup-tag tag-idor">IDOR · INJECTION</span>
+        <span class="finding-date">JUN 2025</span>
+      </div>
+      <h3 class="finding-title">Mass SMS injection + IDOR in identity verification</h3>
+      <p class="finding-impact"><strong>IMPACT</strong>Any account could deliver an attacker-controlled link to any phone number, and predictable short-link IDs exposed other users' ID-upload flows.</p>
+      <ul class="finding-list">
+        <li><code>POST /api/v1/verification/send-sms</code> accepted an arbitrary <code>url</code> and <code>to_phone_number</code>, returned 200, and delivered the link.</li>
+        <li>Upload links used a sequential short-code pattern, so live links to other accounts could be enumerated.</li>
+        <li>Chained: mass phishing delivery at scale plus hijacking of identity verification for any user.</li>
+      </ul>
+      <a class="finding-link" href="https://kingcoolvikas.medium.com/mass-message-injection-and-idor-in-account-verification-c599b729321d" target="_blank" rel="noopener noreferrer">Read the full writeup <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+    </article>
+
+    <article class="finding glass">
+      <div class="finding-head">
+        <span class="writeup-tag tag-recon">RECON · INFO DISCLOSURE</span>
+        <span class="finding-date">JUN 2025</span>
+      </div>
+      <h3 class="finding-title">Private group chats exposed via VirusTotal recon</h3>
+      <p class="finding-impact"><strong>IMPACT</strong>Live group-chat URLs gave unauthenticated access to full message history and shared files for multiple organisations.</p>
+      <ul class="finding-list">
+        <li>The "Available by link" feature granted anonymous access to any group URL containing a valid token.</li>
+        <li>Queried VirusTotal's <code>undetected_urls</code> for the domain instead of crawling the app itself.</li>
+        <li>Confirmed read access to conversations and files across several organisations; bounty awarded.</li>
+      </ul>
+      <a class="finding-link" href="https://kingcoolvikas.medium.com/how-i-earned-a-bounty-using-virustotal-recon-93024ee964ed" target="_blank" rel="noopener noreferrer">Read the full writeup <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+    </article>
+
+    <article class="finding glass">
+      <div class="finding-head">
+        <span class="writeup-tag tag-xss">XSS · WEB</span>
+        <span class="finding-date">DEC 2022</span>
+      </div>
+      <h3 class="finding-title">Filter bypass to XSS on a crypto exchange</h3>
+      <p class="finding-impact"><strong>IMPACT</strong>Script execution in a translation feature, bypassing the input sanitiser the site relied on. $200 bounty paid.</p>
+      <ul class="finding-list">
+        <li>The translation input sanitised simple payloads but not a full polyglot.</li>
+        <li>Fuzzed the parameter with Burp Intruder and used response-length analysis to surface surviving payloads.</li>
+        <li>A <code>&lt;details open ontoggle&gt;</code> polyglot executed where plain tags were neutralised.</li>
+      </ul>
+      <a class="finding-link" href="https://kingcoolvikas.medium.com/how-i-found-my-first-xss-on-a-bug-bounty-program-c41107617ce1" target="_blank" rel="noopener noreferrer">Read the full writeup <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+    </article>
+
+  </div>
+
+  <div class="findings-cta">
+    <a href="https://kingcoolvikas.medium.com" target="_blank" rel="noopener noreferrer" class="btn btn-o"><svg class="icon icon--brand" aria-hidden="true"><use href="#i-medium"></use></svg> All writeups on Medium</a>
   </div>
 </section>
 
@@ -708,8 +816,9 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
     <div>
       <div class="bounty-count" data-target="100" data-suffix="+">100+</div>
       <div class="bounty-count-label">COMPANIES WITH VALID REPORTS</div>
+      <div class="bounty-meta">HackerOne reputation 630 · impact 16.25</div>
     </div>
-    <p class="bounty-note">Valid security vulnerabilities submitted via HackerOne and direct programs — from tech giants to government bodies.</p>
+    <p class="bounty-note">Valid vulnerabilities submitted through HackerOne and direct programs. The full, timestamped record lives on my <a href="https://hackerone.com/kingcoolvikas" target="_blank" rel="noopener noreferrer me">HackerOne profile</a> — a selection of the programs is below.</p>
   </div>
   <div class="hall-logo-grid">
 
@@ -836,62 +945,17 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
   </div>
 </section>
 
-<!-- SECURITY WRITEUPS -->
-<section id="writeups" aria-labelledby="writeups-title">
-  <div class="s-label">// Security Writeups</div>
-  <h2 class="s-title" id="writeups-title">Bug Bounty <span>Stories</span></h2>
-  <div class="writeup-grid">
-
-    <a href="https://kingcoolvikas.medium.com/mass-message-injection-and-idor-in-account-verification-c599b729321d" target="_blank" rel="noopener noreferrer" class="glass writeup-card">
-      <div class="writeup-icon" aria-hidden="true">💉</div>
-      <span class="writeup-tag tag-idor">IDOR · INJECTION</span>
-      <div class="writeup-title">Mass Message Injection and IDOR in Account Verification</div>
-      <div class="writeup-desc">Two chained vulnerabilities discovered — mass message injection combined with IDOR in account verification flows, enabling unauthorized message delivery at scale.</div>
-      <div class="writeup-footer">
-        <span class="writeup-date">JUNE 2025</span>
-        <span class="writeup-read"><i class="fab fa-medium" aria-hidden="true"></i> Read on Medium →</span>
-      </div>
-    </a>
-
-    <a href="https://kingcoolvikas.medium.com/how-i-earned-a-bounty-using-virustotal-recon-93024ee964ed" target="_blank" rel="noopener noreferrer" class="glass writeup-card">
-      <div class="writeup-icon" aria-hidden="true">🔍</div>
-      <span class="writeup-tag tag-recon">RECON · OSINT</span>
-      <div class="writeup-title">How I Earned a Bounty Using VirusTotal Recon</div>
-      <div class="writeup-desc">A creative OSINT approach using VirusTotal as a reconnaissance tool to uncover attack surface and land a valid bug bounty report — thinking beyond the usual toolset.</div>
-      <div class="writeup-footer">
-        <span class="writeup-date">2025</span>
-        <span class="writeup-read"><i class="fab fa-medium" aria-hidden="true"></i> Read on Medium →</span>
-      </div>
-    </a>
-
-    <a href="https://kingcoolvikas.medium.com/how-i-found-my-first-xss-on-a-bug-bounty-program-c41107617ce1" target="_blank" rel="noopener noreferrer" class="glass writeup-card">
-      <div class="writeup-icon" aria-hidden="true">⚡</div>
-      <span class="writeup-tag tag-xss">XSS · WEB</span>
-      <div class="writeup-title">How I Found My First XSS on a Bug Bounty Program</div>
-      <div class="writeup-desc">The story of discovering a first Cross-Site Scripting vulnerability on a bug bounty program — the methodology, the payloads, and what made this find stand out.</div>
-      <div class="writeup-footer">
-        <span class="writeup-date">2025</span>
-        <span class="writeup-read"><i class="fab fa-medium" aria-hidden="true"></i> Read on Medium →</span>
-      </div>
-    </a>
-
-  </div>
-  <div class="mt-28-center">
-    <a href="https://kingcoolvikas.medium.com" target="_blank" rel="noopener noreferrer" class="btn btn-o"><i class="fab fa-medium" aria-hidden="true"></i> View All Writeups on Medium</a>
-  </div>
-</section>
-
 <!-- CONTACT -->
 <section id="contact" aria-labelledby="contact-title">
   <div class="s-label">// Contact</div>
   <h2 class="s-title" id="contact-title">Let's <span>Connect</span></h2>
   <div class="contact-layout">
     <div class="c-cards">
-      <div class="glass c-card"><div class="c-icon m"><i class="fas fa-envelope" aria-hidden="true"></i></div><div><div class="c-label">Email</div><div class="c-val"><a href="mailto:kingcoolvikas@gmail.com">kingcoolvikas@gmail.com</a></div></div></div>
-      <div class="glass c-card"><div class="c-icon p"><i class="fas fa-phone" aria-hidden="true"></i></div><div><div class="c-label">Phone</div><div class="c-val"><a href="tel:+917979948925">+91&nbsp;7979948925</a></div></div></div>
-      <div class="glass c-card"><div class="c-icon loc"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div><div><div class="c-label">Location</div><div class="c-val">Patna, Bihar, India</div></div></div>
-      <div class="glass c-card"><div class="c-icon l"><i class="fab fa-linkedin-in" aria-hidden="true"></i></div><div><div class="c-label">LinkedIn</div><div class="c-val"><a href="https://linkedin.com/in/kingcoolvikas" target="_blank" rel="noopener noreferrer">kingcoolvikas</a></div></div></div>
-      <div class="glass c-card"><div class="c-icon h"><i class="fas fa-bug" aria-hidden="true"></i></div><div><div class="c-label">HackerOne</div><div class="c-val"><a href="https://hackerone.com/kingcoolvikas" target="_blank" rel="noopener noreferrer">kingcoolvikas</a></div></div></div>
+      <div class="glass c-card"><div class="c-icon m"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></div><div><div class="c-label">Email</div><div class="c-val"><a href="mailto:kingcoolvikas@gmail.com">kingcoolvikas@gmail.com</a></div></div></div>
+      <div class="glass c-card"><div class="c-icon p"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg></div><div><div class="c-label">Phone</div><div class="c-val"><a href="tel:+917979948925">+91&nbsp;7979948925</a></div></div></div>
+      <div class="glass c-card"><div class="c-icon loc"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg></div><div><div class="c-label">Location</div><div class="c-val">Patna, Bihar, India</div></div></div>
+      <div class="glass c-card"><div class="c-icon l"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg></div><div><div class="c-label">LinkedIn</div><div class="c-val"><a href="https://linkedin.com/in/kingcoolvikas" target="_blank" rel="noopener noreferrer me">kingcoolvikas</a></div></div></div>
+      <div class="glass c-card"><div class="c-icon h"><svg class="icon" aria-hidden="true"><use href="#i-bug"></use></svg></div><div><div class="c-label">HackerOne</div><div class="c-val"><a href="https://hackerone.com/kingcoolvikas" target="_blank" rel="noopener noreferrer me">kingcoolvikas</a></div></div></div>
     </div>
 
     <!--
@@ -917,9 +981,9 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
       </div>
       <div class="fg">
         <label class="flbl" for="cf-message">Message</label>
-        <textarea class="fta" id="cf-message" name="message" placeholder="Tell me about your needs..." required></textarea>
+        <textarea class="fta" id="cf-message" name="message" placeholder="Tell me about your scope, stack and timeline..." required></textarea>
       </div>
-      <button type="submit" class="btn btn-p"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message</button>
+      <button type="submit" class="btn btn-p"><svg class="icon" aria-hidden="true"><use href="#i-send"></use></svg> Send Message</button>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       <p class="form-note">This opens your email app. You can also write directly to <a href="mailto:kingcoolvikas@gmail.com">kingcoolvikas@gmail.com</a>.</p>
     </form>
@@ -931,11 +995,11 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
 <footer>
   <div class="fc">© 2026 <span>Vikas Anand</span> · Security Analyst</div>
   <div class="ft">
-    <a href="https://linkedin.com/in/kingcoolvikas" target="_blank" rel="noopener noreferrer me" title="LinkedIn" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-    <a href="https://github.com/kingcoolvikas" target="_blank" rel="noopener noreferrer me" title="GitHub" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
-    <a href="https://hackerone.com/kingcoolvikas" target="_blank" rel="noopener noreferrer me" title="HackerOne" aria-label="HackerOne profile"><i class="fas fa-bug" aria-hidden="true"></i></a>
-    <a href="https://kingcoolvikas.medium.com" target="_blank" rel="noopener noreferrer me" title="Medium" aria-label="Medium blog"><i class="fab fa-medium" aria-hidden="true"></i></a>
-    <a href="#home" title="Back to top" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
+    <a href="https://linkedin.com/in/kingcoolvikas" target="_blank" rel="noopener noreferrer me" title="LinkedIn" aria-label="LinkedIn profile"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+    <a href="https://github.com/kingcoolvikas" target="_blank" rel="noopener noreferrer me" title="GitHub" aria-label="GitHub profile"><svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg></a>
+    <a href="https://hackerone.com/kingcoolvikas" target="_blank" rel="noopener noreferrer me" title="HackerOne" aria-label="HackerOne profile"><svg class="icon" aria-hidden="true"><use href="#i-bug"></use></svg></a>
+    <a href="https://kingcoolvikas.medium.com" target="_blank" rel="noopener noreferrer me" title="Medium" aria-label="Medium blog"><svg class="icon icon--brand" aria-hidden="true"><use href="#i-medium"></use></svg></a>
+    <a href="#home" title="Back to top" aria-label="Back to top"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg></a>
   </div>
 </footer>
 
@@ -991,9 +1055,8 @@ footer{padding:28px 80px;border-top:1px solid var(--border);display:flex;justify
 
   /* ── Reveal on scroll ──────────────────────────────────────────── */
   var countersDone = new WeakSet();
-  var supportsObserver = 'IntersectionObserver' in window;
 
-  if (supportsObserver) {
+  if ('IntersectionObserver' in window) {
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
